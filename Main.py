@@ -9,6 +9,7 @@ from utils import *
 pygame.init()
 pygame.display.set_caption('Dave Game')
 SCREEN = pygame.display.set_mode((SCREENX,SCREENY))
+GRID = grid(SCREEN,3,4)
 fpsClock=pygame.time.Clock()
 
 while True :
@@ -21,7 +22,6 @@ while True :
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
-    GRID = grid(SCREEN,3,4)
     GRID.show(BLUE)
     GRID.locate(R.randint(0,SCREENX),R.randint(0,SCREENY))
     pygame.display.update()
