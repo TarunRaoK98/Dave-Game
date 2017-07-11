@@ -23,6 +23,6 @@ while True :
             pygame.quit()
             sys.exit()
     GRID.show(BLUE)
-    GRID.locate(R.randint(0,SCREENX),R.randint(0,SCREENY))
+    GRID.highlight([GRID.locate(R.randint(0,SCREENX),R.randint(0,SCREENY))])
     pygame.display.update()
     fpsClock.tick(FPS)

@@ -37,15 +37,11 @@ class grid:
             cell=self.obj[point[0]-1][point[1]-1]
             pygame.draw.rect(self.screen,HIGHLIGHTER,(cell.left,cell.top,cell.width,cell.height))
     def locate(self,x,y):
-        i=j=None
+        i=j=-1
         for row in range(self.rows):
-            if y>self.obj[row][0].top and y<self.obj[row][0].bottom:
+            if y in range(self.obj[row][0].top,self.obj[row][0].bottom):
                 i=row
         for column in range(self.columns):
-            if x>self.obj[0][column].left and x<self.obj[0][column].right:
+            if x in range(self.obj[0][column].left,self.obj[0][column].right):
                 j=column
-        if i!=None and j!=None:
-            self.highlight([[i,j]])
-            return [i,j]
-        else:
-            print 'point not found'
+        return [i,j]
