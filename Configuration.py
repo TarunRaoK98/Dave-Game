@@ -15,5 +15,5 @@ RED   = pygame.Color(255, 0  , 0  )
 GREEN = pygame.Color( 0 , 255, 0  )
 BLUE  = pygame.Color( 0 , 0  , 255)
 HIGHLIGHTER=RED
-SCREENX=640
-SCREENY=480
+SCREENX=1280
+SCREENY=720

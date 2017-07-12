@@ -45,3 +45,10 @@ class grid:
             if x in range(self.obj[0][column].left,self.obj[0][column].right):
                 j=column
         return [i,j]
+class dave:
+    def __init__(self,x,y):
+        self.weight=5
+        self.x=x
+        self.y=y
+        self.cell= GRID.locate(self.x,self.y)
+        self.body=pygame.Rect(GRID.obj[self.cell[0]][self.cell[1]])

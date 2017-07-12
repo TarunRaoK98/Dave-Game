@@ -9,7 +9,7 @@ from utils import *
 pygame.init()
 pygame.display.set_caption('Dave Game')
 SCREEN = pygame.display.set_mode((SCREENX,SCREENY))
-GRID = grid(SCREEN,3,4)
+GRID = grid(SCREEN,10,17)
 fpsClock=pygame.time.Clock()
 
 while True :
