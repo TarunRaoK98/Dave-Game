@@ -31,6 +31,7 @@ class grid:
             for column in range(self.columns):
                 cell=self.obj[row][column]
                 pygame.draw.rect(self.screen,color,(cell.left,cell.top,cell.width,cell.height))
+
     def highlight(self,points):
         # Rows and Columns start from 1
         for point in points:
@@ -46,9 +47,30 @@ class grid:
                 j=column
         return [i,j]
 class dave:
-    def __init__(self,x,y):
+    def __init__(self,x,y,GRID):
         self.weight=5
         self.x=x
         self.y=y
-        self.cell= GRID.locate(self.x,self.y)
-        self.body=pygame.Rect(GRID.obj[self.cell[0]][self.cell[1]])
+        self.grid=GRID
+        self.screen=GRID.screen
+        self.leap=GRID.cellWidth
+        self.jump=GRID.cellHeight
+        self.image=pygame.image.load("block.jpg")
+    def move(self,direction):
+        self.cell= self.grid.locate(self.x,self.y)
+        if direction == 'up' and self.cell[0] != 0:
+            self.y -=self.jump
+        elif direction == 'right' and self.cell[1] != self.grid.columns-1:
+            self.x +=self.leap
+        elif direction == 'left' and self.cell[1] != 0:
+            self.x -= self.leap
+        elif direction == 'Lup' and self.cell[0] != 1:
+            self.y -= self.jump*2
+        elif direction == 'down' and self.cell[0] != self.grid.rows-1:
+            self.y +=self.jump
+    def draw(self):
+        self.cell= self.grid.locate(self.x,self.y)
+        self.body=pygame.Rect(self.grid.obj[self.cell[0]][self.cell[1]])
+        if -1 not in self.cell:
+            #pygame.draw.rect(self.screen,RED,(self.body.left,self.body.top,self.body.width,self.body.height))
+            self.screen.blit(self.image,(self.body.left, self.body.top))

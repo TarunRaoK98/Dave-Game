@@ -10,19 +10,28 @@ pygame.init()
 pygame.display.set_caption('Dave Game')
 SCREEN = pygame.display.set_mode((SCREENX,SCREENY))
 GRID = grid(SCREEN,10,17)
+DAVE=dave(1260,132,GRID)
 fpsClock=pygame.time.Clock()
 
 while True :
-    SCREEN.fill(GREEN)
+    SCREEN.fill(WHITE)
     for event in pygame.event.get():
         if(event.type==KEYDOWN):
             if(event.key==K_ESCAPE):
                 pygame.quit()
                 sys.exit()
+            elif (event.key==K_DOWN ):
+                DAVE.move('down')
+            elif(event.key==K_LEFT ):
+                DAVE.move('left')
+            elif(event.key==K_UP):
+                DAVE.move('Lup')
+            elif(event.key==K_RIGHT ):
+                DAVE.move('right')
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
     GRID.show(BLUE)
-    GRID.highlight([GRID.locate(R.randint(0,SCREENX),R.randint(0,SCREENY))])
+    DAVE.draw()
     pygame.display.update()
     fpsClock.tick(FPS)
