@@ -31,7 +31,8 @@ while True :
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
-    GRID.show(BLUE)
+    #GRID.show(BLUE)
     DAVE.draw()
+    DAVE.move('fall')
     pygame.display.update()
     fpsClock.tick(FPS)

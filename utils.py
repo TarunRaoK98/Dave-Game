@@ -68,6 +68,8 @@ class dave:
             self.y -= self.jump*2
         elif direction == 'down' and self.cell[0] != self.grid.rows-1:
             self.y +=self.jump
+        elif direction == 'fall' and self.cell[0] != self.grid.rows-1:
+            self.y +=self.jump/5
     def draw(self):
         self.cell= self.grid.locate(self.x,self.y)
         self.body=pygame.Rect(self.grid.obj[self.cell[0]][self.cell[1]])
