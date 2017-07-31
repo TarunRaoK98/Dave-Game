@@ -2,7 +2,7 @@
 """
 Created on Tue Jul 11 00:14:16 2017
 
-@author: ktaru
+@author: Tarun Rao
 """
 from Configuration import *
 class grid:
